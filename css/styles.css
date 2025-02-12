@@ -1,0 +1,278 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #001f3f; /* 文字色を紺色に変更 */
+    background-color: transparent; /* 背景色を透明に */
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+canvas#backgroundCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 背景に設定 */
+}
+
+header {
+    background: rgba(0, 31, 63, 0.8); /* 背景色を半透明に設定 */
+    color: #fff;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+main {
+    padding: 4rem 0 2rem 0; /* ヘッダーの高さ分を追加 */
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    background: url('src/001.jpg') no-repeat center center/cover; /* 背景画像を設定 */
+    color: #fff; /* 文字色を白に変更 */
+    margin-bottom: 2rem;
+    position: relative;
+    width: 100%; /* 横幅を枠いっぱいに設定 */
+}
+
+.hero h2 {
+    color: #fff; /* 文字色を白に */
+    text-shadow: black 0px 0px 8px;
+    /*text-shadow: #000000 2px 0 10px;
+    /*text-shadow: 3px 3px 6px #001f3f; /* 紺色で縁取り */
+    font-size: 4rem; /* 文字サイズを3倍に */
+}
+
+.hero p {
+    color: #fff; /* 文字色を白に */
+    text-shadow: black 0px 0px 6px;
+    font-size: 2rem; /* 文字サイズを2倍に */
+    font-weight: bold;
+}
+
+.line-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    width: 0;
+    height: 2px;
+    background: #ff851b; /* オレンジ色 */
+    margin: 1rem auto;
+    transition: width 1s;
+}
+
+h2 {
+    color: #001f3f;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.concept {
+    margin-bottom: 2rem;
+}
+
+.concept p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services-container, .cases-container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.services-container.visible, .cases-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.services, .cases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service, .case {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.service:hover, .case:hover {
+    transform: translateY(-10px); /* 浮き上がる効果 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.image-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.service h3, .case h3 {
+    color: #001f3f;
+    margin-top: 0.5rem;
+}
+
+.service p, .case p {
+    color: #666;
+}
+
+.case .details {
+    color: #ff851b;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.contact {
+    text-align: center;
+}
+
+.contact-button {
+    background: #ff851b;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.contact-button:hover {
+    background: #e67e22;
+}
+
+form .form-group {
+    margin-bottom: 1rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background: #ff851b;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+form button:hover {
+    background: #e67e22;
+}
+
+footer {
+    background: #001f3f;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f4f4f4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #001f3f;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff851b;
+}
+
+/* Cursor */
+#cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ff851b;
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: transform 0.1s ease-in-out, width 0.1s ease-in-out, height 0.1s ease-in-out;
+    z-index: 1000;
+}
